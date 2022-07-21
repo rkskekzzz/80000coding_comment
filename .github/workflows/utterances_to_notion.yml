@@ -1,0 +1,17 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Utterances to Notion comment
+
+
+on:
+  issue_comment:
+    types: [created, deleted]
+
+jobs:
+  commented:
+    name: commented
+    if: ${{ github.event.issue }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo ${{ github.event.issue }}
