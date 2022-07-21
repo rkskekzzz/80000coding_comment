@@ -5,7 +5,7 @@ name: Utterances to Notion comment
 
 on:
   issue_comment:
-    types: [created, deleted]
+    types: [created]
 
 jobs:
   commented:
