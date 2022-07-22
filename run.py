@@ -4,7 +4,6 @@ import json
 
 COMMENT_URL = os.getenv('COMMENT_URL')
 HOST_URL = os.getenv('HOST_URL')
-my_bearer = os.getenv('BEARER')
 
 response = requests.request("GET", COMMENT_URL,)
 responseJson = json.loads(response.text)
@@ -18,7 +17,7 @@ DATABASE_ID = HOST_URL.split("/")[-1].replace("-","")
 
 apiUrl = "https://api.notion.com/v1/comments"
 headers = {
-    "Authorization": "Bearer {}".format(my_bearer),
+    "Authorization": f"Bearer {os.environ['BEARER']}",
     "Accept": "application/json",
     "Notion-Version": "2022-02-22",
     "Content-Type": "application/json"
