@@ -24,6 +24,8 @@ headers = {
     "Content-Type": "application/json"
 }
 
+print(headers)
+
 def updateComment():
     _apiUrl = "https://api.notion.com/v1/comments"
     _payload = {
