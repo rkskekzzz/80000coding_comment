@@ -31,7 +31,6 @@ jobs:
       shell: bash
         
       run: |
-        echo $COMMENT_URL
-        echo $HOST_URL
+        pip install requests
         python3 run.py
       
