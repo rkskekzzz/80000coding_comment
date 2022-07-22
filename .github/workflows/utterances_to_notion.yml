@@ -25,5 +25,7 @@ jobs:
       shell: bash
         
       run: |
+        echo $COMMENT_URL
+        echo $HOST_URL
         python3 run.py
       
