@@ -1,10 +1,10 @@
 import os
 import requests
 import json
-from dotenv import load_dotenv
 
 COMMENT_URL = os.getenv('COMMENT_URL')
 HOST_URL = os.getenv('HOST_URL')
+my_bearer = os.getenv("BEARER")
 
 response = requests.request("GET", COMMENT_URL,)
 responseJson = json.loads(response.text)
@@ -14,8 +14,8 @@ SENDER =  responseJson[-1]['user']['login']
 DATABASE_ID = HOST_URL.split("/")[-1].replace("-","")
 
 
-load_dotenv()
-my_bearer = os.getenv("BEARER")
+
+
 apiUrl = "https://api.notion.com/v1/comments"
 headers = {
     "Authorization": "Bearer {}".format(my_bearer),
