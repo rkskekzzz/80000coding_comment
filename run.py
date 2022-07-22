@@ -4,7 +4,7 @@ import json
 
 COMMENT_URL = os.getenv('COMMENT_URL')
 HOST_URL = os.getenv('HOST_URL')
-my_bearer = os.getenv("BEARER")
+my_bearer = os.getenv('BEARER')
 
 response = requests.request("GET", COMMENT_URL,)
 responseJson = json.loads(response.text)
