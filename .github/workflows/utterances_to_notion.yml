@@ -12,16 +12,18 @@ jobs:
     name: commented
     if: ${{ github.event.issue }}
     runs-on: ubuntu-latest
+    env:
+      BEARER: ${{ secrets.BEARER }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
     - name: Dump GitHub context
+      shell: bash
       env: 
         GITHUB_CONTEXT: ${{ toJson(github) }}
         COMMENT_URL: ${{ github.event.issue.comments_url }}
         HOST_URL: ${{ github.event.issue.title }}
-        BEARER: ${{ secrets.BEARER }}
         
       run: python3 run.py
       
