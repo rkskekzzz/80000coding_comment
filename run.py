@@ -12,14 +12,15 @@ BODY = responseJson[-1]['body']
 SENDER =  responseJson[-1]['user']['login']
 DATABASE_ID = HOST_URL.split("/")[-1].replace("-","")
 
+headers = {
+    "Authorization": f"Bearer {os.environ['BEARER']}",
+    "Accept": "application/json",
+    "Notion-Version": "2022-02-22",
+    "Content-Type": "application/json"
+}
+
 def updateComment():
     _apiUrl = "https://api.notion.com/v1/comments"
-    _headers = {
-        "Authorization": f"Bearer {os.environ['BEARER']}",
-        "Accept": "application/json",
-        "Notion-Version": "2022-02-22",
-        "Content-Type": "application/json"
-    }
     _payload = {
         "parent": {
             "page_id": DATABASE_ID
@@ -70,7 +71,7 @@ def updateComment():
             }
         ]
     }
-    response = requests.post(_apiUrl, json=_payload, headers=_headers)
+    response = requests.post(_apiUrl, json=_payload, headers=headers)
     responseJson = json.loads(response.text)
     print(responseJson)
 
