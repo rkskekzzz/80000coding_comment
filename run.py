@@ -8,9 +8,14 @@ HOST_URL = os.getenv('HOST_URL')
 response = requests.get(COMMENT_URL)
 responseJson = json.loads(response.text)
 
+
 BODY = responseJson[-1]['body']
 SENDER =  responseJson[-1]['user']['login']
 DATABASE_ID = HOST_URL.split("/")[-1].replace("-","")
+
+print(BODY)
+print(SENDER)
+print(DATABASE_ID)
 
 headers = {
     "Authorization": f"Bearer {os.environ['BEARER']}",
