@@ -27,9 +27,5 @@ jobs:
         HOST_URL: ${{ github.event.issue.title }}
         
       run: |
-        echo $GITHUB_CONTEXT
-        echo $COMMENT_URL
-        echo $HOST_URL
-        echo $BEARER
         python3 run.py
       
