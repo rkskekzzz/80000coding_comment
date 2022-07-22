@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BEARER: ${{ secrets.BEARER }}
+      COMMENT_URL: ${{ github.event.issue.comments_url }}
+      HOST_URL: ${{ github.event.issue.title }}
 
     steps:
     - name: Checkout code
@@ -21,10 +23,6 @@ jobs:
 
     - name: Dump GitHub context
       shell: bash
-      env: 
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-        COMMENT_URL: ${{ github.event.issue.comments_url }}
-        HOST_URL: ${{ github.event.issue.title }}
         
       run: |
         python3 run.py
