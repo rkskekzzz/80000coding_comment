@@ -62,7 +62,7 @@ def updateComment():
                 "text": {
                     "content": "from oopy",
                     "link": {
-                        "url" : "https://80000coding.oopy.io/" + DATABASE_ID
+                        "url" : HOST_URL
                     }
                 },
                 "annotations": {
