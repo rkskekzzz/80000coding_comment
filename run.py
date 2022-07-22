@@ -70,7 +70,7 @@ def updateComment():
             }
         ]
     }
-    response = requests.request("POST", _apiUrl, headers=_headers, data=json.dumps(_body))
+    response = requests.post( _apiUrl, headers=_headers, data=json.dumps(_body))
     responseJson = json.loads(response.text)
     print(responseJson)
 
