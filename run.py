@@ -18,7 +18,7 @@ print(SENDER)
 print(DATABASE_ID)
 
 headers = {
-    "Authorization": f"Bearer {os.environ['BEARER']}",
+    "Authorization": f"Bearer {os.getenv('BEARER')}",
     "Accept": "application/json",
     "Notion-Version": "2022-02-22",
     "Content-Type": "application/json"
