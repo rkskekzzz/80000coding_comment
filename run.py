@@ -20,7 +20,7 @@ def updateComment():
         "Notion-Version": "2022-02-22",
         "Content-Type": "application/json"
     }
-    _body = {
+    _payload = {
         "parent": {
             "page_id": DATABASE_ID
         },
@@ -70,7 +70,7 @@ def updateComment():
             }
         ]
     }
-    response = requests.post( _apiUrl, headers=_headers, data=json.dumps(_body))
+    response = requests.post(_apiUrl, json=_payload, headers=_headers)
     responseJson = json.loads(response.text)
     print(responseJson)
 
