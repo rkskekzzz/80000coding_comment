@@ -5,7 +5,7 @@ import json
 COMMENT_URL = os.getenv('COMMENT_URL')
 HOST_URL = os.getenv('HOST_URL')
 
-response = requests.request("GET", COMMENT_URL,)
+response = requests.request("GET", COMMENT_URL)
 responseJson = json.loads(response.text)
 
 BODY = responseJson[-1]['body']
@@ -72,5 +72,6 @@ def updateComment():
     }
     response = requests.request("POST", _apiUrl, headers=_headers, data=json.dumps(_body))
     responseJson = json.loads(response.text)
+    print(responseJson)
 
 updateComment()
