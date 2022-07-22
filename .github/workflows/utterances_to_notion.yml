@@ -14,4 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ${{ toJson(github.event.issue) }}
+          echo ${{ toJson(github.event) }}
