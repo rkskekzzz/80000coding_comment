@@ -5,7 +5,7 @@ import json
 COMMENT_URL = os.getenv('COMMENT_URL')
 HOST_URL = os.getenv('HOST_URL')
 
-response = requests.request("GET", COMMENT_URL)
+response = requests.get(COMMENT_URL)
 responseJson = json.loads(response.text)
 
 BODY = responseJson[-1]['body']
