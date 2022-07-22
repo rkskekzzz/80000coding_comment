@@ -18,9 +18,7 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
         COMMENT_URL: ${{ github.event.issue.comments_url }}
         HOST_URL: ${{ github.event.issue.title }}
+        BEARER: ${{ secrets.BEARER }}
         
-      run: |
-        echo "$GITHUB_CONTEXT"
-        echo "$COMMENT_URL"
-        echo "$HOST_URL"
+      run: python3 run.py
       
