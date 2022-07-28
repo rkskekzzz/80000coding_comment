@@ -20,6 +20,9 @@ headers = {
 }
 
 def updateComment():
+    print(BODY)
+    print(SENDER)
+    print(DATABASE_ID)
     _apiUrl = "https://api.notion.com/v1/comments"
     _payload = {
         "parent": {
@@ -71,7 +74,7 @@ def updateComment():
             }
         ]
     }
-    response = requests.post(_apiUrl, json=_payload, headers=headers)
+    response = requests.post(_apiUrl, data=json.dumps(_payload), headers=headers)
     responseJson = json.loads(response.text)
     print(responseJson)
 
