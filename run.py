@@ -16,7 +16,7 @@ DATABASE_ID = HOST_URL.split("/")[-1].replace("-","")
 headers = {
     "Authorization": f"Bearer {BEARER}",
     "Accept": "application/json",
-    "Notion-Version": "2022-0ㅇ2-22",
+    "Notion-Version": "2022-2-22",
     "Content-Type": "application/json"
 }
 
