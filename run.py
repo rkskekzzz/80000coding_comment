@@ -4,6 +4,7 @@ import json
 
 COMMENT_URL = os.environ['COMMENT_URL']
 HOST_URL = os.environ['HOST_URL']
+BEARER = os.environ['BEARER']
 
 response = requests.get(COMMENT_URL)
 responseJson = json.loads(response.text)
@@ -13,7 +14,7 @@ SENDER =  responseJson[-1]['user']['login']
 DATABASE_ID = HOST_URL.split("/")[-1].replace("-","")
 
 headers = {
-    "Authorization": f"Bearer {os.environ['BEARER']}",
+    "Authorization": f"Bearer {BEARER}",
     "Accept": "application/json",
     "Notion-Version": "2022-0ㅇ2-22",
     "Content-Type": "application/json"
